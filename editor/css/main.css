@@ -1,0 +1,53 @@
+@font-face {
+    font-family: HP001-Normal;
+    src: url(/static/font/HP001N30.ttf);
+}
+@font-face {
+    font-family: HP001-Bold;
+    src: url(/static/font/HP001B30.ttf);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.card{
+    cursor: pointer;
+    width: 220px;
+}
+
+.card-header{
+    border-bottom: none;
+}
+
+.baseCard:not(.baseCard:nth-child(1)){
+    font-family: HP001-Bold;
+}
+
+input.glyph-input{
+    font-size:72px;
+    font-family: HP001-Bold;
+}
+
+input.glyph{
+    font-size:72px;
+    font-family: HP001-Bold;
+}
+
+input.glyph-display{
+    pointer-events:none;
+    border: none;
+
+}
+
+.not-resizable{
+    resize: none;
+}

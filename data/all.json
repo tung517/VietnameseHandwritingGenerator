@@ -1,0 +1,80 @@
+{
+    "a":{
+        "baseGlyph": 97,
+        "types":[
+            {
+                "isCap": false,
+                "prev":["o","i","u","b","c", null],
+                "next":["i","o","u","c","m","n", null],
+                "accent":{
+                    "level":97,
+                    "acute":225,
+                    "lower":224,
+                    "rising":7843,
+                    "raised":227,
+                    "heavy":7841
+                }
+            }
+        ]
+    },
+    "b":{
+        "baseGlyph": 98,
+        "types":[
+            {
+                "isCap": false,
+                "prev":[null],
+                "next":[ "o", "a"],
+                "accent":{
+                    "level":98
+                }
+            },
+            {
+                "isCap": false,
+                "prev":[null],
+                "next":[null],
+                "accent":{
+                    "level":600
+                }
+            },
+            {
+                "isCap": false,
+                "prev":[null],
+                "next":["i"],
+                "accent":{
+                    "level":955
+                }
+            }
+        ]
+    },
+    "i":{
+        "baseGlyph": 105,
+        "types":[
+            {
+                "isCap": false,
+                "prev":["o","u", "a"],
+                "next":["c","m","n", null],
+                "accent":{
+                    "level":105,
+                    "acute":237,
+                    "lower":236,
+                    "rising":7881,
+                    "raised":297,
+                    "heavy":7883
+                }
+            },
+            {
+                "isCap":false,
+                "prev":["b"],
+                "next":["c","m","n", null],
+                "accent":{
+                    "level":624,
+                    "acute":625,
+                    "lower":626,
+                    "rising":627,
+                    "raised":628,
+                    "heavy":629
+                }
+            }
+        ]
+    }
+}

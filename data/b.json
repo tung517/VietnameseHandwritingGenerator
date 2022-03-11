@@ -1,0 +1,29 @@
+{
+    "baseGlyph": 98,
+    "types":[
+        {
+            "isCap": false,
+            "prev":[null],
+            "next":[ "o", "a"],
+            "accent":{
+                "level":98
+            }
+        },
+        {
+            "isCap": false,
+            "prev":[null],
+            "next":[null],
+            "accent":{
+                "level":600
+            }
+        },
+        {
+            "isCap": false,
+            "prev":[null],
+            "next":["i"],
+            "accent":{
+                "level":955
+            }
+        }
+    ]
+}

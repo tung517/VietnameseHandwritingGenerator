@@ -1,0 +1,18 @@
+{
+    "baseGlyph": 97,
+    "types":[
+        {
+            "isCap": false,
+            "prev":["o","i","u","b","c", null],
+            "next":["i","o","u","c","m","n", null],
+            "accent":{
+                "level":97,
+                "acute":225,
+                "lower":224,
+                "rising":7843,
+                "raised":227,
+                "heavy":7841
+            }
+        }
+    ]
+}
