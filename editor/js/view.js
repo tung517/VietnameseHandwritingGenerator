@@ -16,7 +16,7 @@ view.showComponents = function(name){
                 `
             }
             baseList.html(baseListHtml)
-
+            //new base card modal
             $('#addNewBaseCardModal').on('shown.bs.modal', function () {
                 $('#newBaseCardInput').trigger('focus')
             })
@@ -26,11 +26,28 @@ view.showComponents = function(name){
                 controller.addNewBase(newBaseCardForm.children('input').val())
             })
 
+            //Download json button
             $('#downloadJson').on('click', function(e){
                 model.download('all.json', JSON.stringify(model.glyphData))
             })
+
+            //edit base
+            baseList.children('.baseCard:not(:first-child)')
+                    .on('click', view.populateEditForm)
             break;
         default:
             app.html(components.loading)
     }
+}
+
+view.populateEditForm = function (e){
+    let baseCard = $(e.target);
+    let baseCardEditorModal = $('#editBaseModal').find('.modal-body')
+    let editForm = components.baseEditForm
+    let typeEditor = components.singleTypeEditor
+    //form header
+    baseCardEditorModal.html(editForm);
+    baseCardEditorModal.find('#baseCharacter').val(baseCard.text())
+    baseCardEditorModal.find('#baseUnicode').val(baseCard.text().charCodeAt(0))
+    
 }

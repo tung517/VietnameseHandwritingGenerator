@@ -13,32 +13,47 @@
         </style>
         <script>
             //utils
-            function getUnicodeStr(word, baseChars){
+            function getUnicodeStr(word){
+                console.log(word)
+                let charArr = word.split('');
+                //join phu am ghep kh nh ch gh ph th
+                let i = 0
+                while (i < charArr.length - 1){
+                    let currChar = charArr[i];
+                    let nextChar = charArr[i+1];
+                    if ("kh nh ch gh ph th".split(' ').indexOf(currChar+nextChar) >= 0){
+                        charArr[i] = currChar+nextChar;
+                        charArr.splice(i+1,1);
+                    }
+                    i++;
+                }
+                let baseChars = charArr.map(char => removeAccents(char));
                 let unicodeString = "";
                 let base = null;
                 let prev = null;
                 let curr = null;
                 let next = null;
-                for (let i = 0; i < word.length; i++) {
+                for (let i = 0; i < charArr.length; i++) {
                     base = baseChars[i];
-                    curr = word[i];
+                    curr = charArr[i];
                     prev = i == 0 ? null: baseChars[i-1];
-                    next = i == word.length - 1 ? null: baseChars[i+1];
+                    next = i == charArr.length - 1 ? null: baseChars[i+1];
                     let glyph = getGlyph(base, prev, curr, next);
-                    unicodeString += String.fromCharCode(glyph);
+                    unicodeString += glyph;
                 }
                 return unicodeString;
             }
 
             function getGlyph(base, previous, char, next){
+                console.log('getGlyph', base, previous, char, next)
                 let currentSet = glyphs[base].types;
-                console.log(currentSet)
+                console.log(base,currentSet)
                 for (const type of currentSet) {
                     if ( type.prev.includes(previous) && type.next.includes(next)){
-                        return type.accent.level;
+                        glyphs = type.accent['level'];
+                        return glyphs.split(',').map(glyph => String.fromCharCode(glyph));
                     }
                 }
-                
             }
 
             function removeAccents(str) {
@@ -69,7 +84,7 @@
                 return str.replace(/(<([^>]+)>)/gi, "");
             }
             
-            const decodeHTMLEntities = text => {
+            function decodeHTMLEntities(text) {
                 // Create a new element or use one from cache, to save some element creation overhead
                 const el = decodeHTMLEntities.__cache_data_element 
                         = decodeHTMLEntities.__cache_data_element 
@@ -101,13 +116,14 @@
     </head>
     <body>
         <h1 id="input" style="border: 2pt solid black; min-width: 100px;" contenteditable="true" ></h1>
-        <h1 id="result" style="font-family: HP001-Bold;""></h1>
+        <h1 id="result" style="font-family: HP001-Bold;"></h1>
         <script>
             //get json data
             var glyphs = {
 
             }
-            let list = ["a", "ă", 'â', "b", 'c', 'd', 'đ', 'e', 'ê', "i", 'k', 'l', 'm', 'n','o', 'ô', 'ơ', 'r', 's','t', 'u', 'ư', 'v', 'x', 'y'];
+            let list = ["a", "ă", 'â', "b", 'c', 'd', 'đ', 'e', 'ê', "i", 'k', 'l', 'm', 'n','o', 'ô', 'ơ', 'r', 's','t', 'u', 'ư', 'v', 'x', 'y'
+                        ,"kh"];
             for (const base of list) {
                 $.getJSON("/data/"+base+".json", function(data){
                     glyphs[base] = data;
@@ -123,11 +139,9 @@
                 let words = decodeHTMLEntities($input.text()).split(" ");
                 let result = []
                 for (const word of words) {
-                    let baseChars = removeAccents(word);
-                    let unicodeWord = getUnicodeStr(word, baseChars);
+                    let unicodeWord = getUnicodeStr(word);
                     result.push(unicodeWord)
                 }
-
                 $result.html(result.join(" "))
             })
         </script>

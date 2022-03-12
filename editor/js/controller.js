@@ -1,8 +1,9 @@
 const controller = {}
 
 controller.initEditor = function(){
-    // view.showComponents('loading')
-    // model.loadJsonData();
+    view.showComponents('loading')
+    model.loadJsonData();
+    
 }
 
 controller.addNewBase = function(base){

@@ -22,3 +22,33 @@ model.download = function(filename, text){
     
     document.body.removeChild(element);
 }
+
+function handleGlyphInput(e){
+    console.log(123)
+    let input = $(e);
+    console.log(input)
+    let inputValue = input.val();
+    console.log(inputValue)
+    let unicodeInputName = input.attr('for');
+    let unicodeInput = $('#'+unicodeInputName);
+    unicodeInput.val(inputValue.charCodeAt(0) | null);
+}
+
+const target = document.getElementById('glyphinputlevel1');
+    target.addEventListener('paste', (e) => {
+        e.preventDefault();
+        let paste = (e.clipboardData || window.clipboardData).getData('text');
+        console.log(paste)
+        let arr = paste.trim().split(' ').map(element => element.trim()).filter(element => element.length != 0);;
+        
+        let arr2 = ['level', 'acute', 'lower', 'rising', 'raised', 'heavy'];
+
+        for (let i = 0; i < arr.length; i++) {
+            const glyph = arr[i];
+            const tone = arr2[i];
+            $('#glyphinput'+tone+'1').val(glyph);
+            $('#'+tone+'1').val(glyph.split('').map(char => char.charCodeAt(0)).join(','));
+        }
+        
+        
+    })

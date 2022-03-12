@@ -3,7 +3,7 @@
     "types":[
         {
             "isCap": false,
-            "prev":["o","i","u","b","c", null],
+            "prev":["o","i","u","b","c", "kh" , null],
             "next":["i","o","u","c","m","n", null],
             "accent":{
                 "level":97,

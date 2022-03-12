@@ -4,7 +4,7 @@ const components = {
 
 components.loading = `
 <div class="loading-container">
-    <img src="./imgs/loading.gif" >
+    <img src="./img/loading.gif" >
   </div>
 `
 
@@ -96,6 +96,83 @@ components.baseCard = `
 </div>
 `
 
-components.editor = `
-
+components.baseEditForm = `
+<form id="editBaseForm" action="#">
+<div class="row">
+    <div class="col-2 d-flex align-items-center justify-content-center">Editing base</div>
+    <div class="col-10 d-flex align-items-center ">
+        <span>Unicode:</span>
+        <input id="baseUnicode" class="glyph-display text-center" value="" type="text" disabled=true size=4>
+        <span>Glyph</span>
+        <input id="baseCharacter" class="glyph glyph-display text-center" value="" size="1">
+        <span>Number of types:</span>
+        <input id="numberOfTypes" class="glyph-display text-center" value="0" size="5">
+    </div>
+</div>
+</form>
+`
+components.singleTypeEditor = `
+<div class="row" class="base-type-editor" id="typeNUM-PLACEHOLDER">
+    <div class="col-sm-2 d-flex align-items-center justify-content-center">
+        <p>Type </p> 
+        <p class="type-num"> 1</p>
+    </div>
+    <div class="col-sm-10">
+        <div class="row  d-flex align-items-center p-2">                                
+            <label for="isCapNUM-PLACEHOLDER" class="col-4 col-sm-2">Capitalization</label>
+            <div class="col-8 col-sm-10">
+                <input type="checkbox" name="isCapNUM-PLACEHOLDER" id="isCapNUM-PLACEHOLDER">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-2 col-sm-2 text-center">
+                <p>Level (Ngang)</p>
+                <p><input id="levelNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputlevelNUM-PLACEHOLDER" for="levelNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+            </div>
+            <div class="col-2 col-sm-2 text-center">
+                <p>Acute (Sắc)</p>
+                <p><input id="acuteNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputacuteNUM-PLACEHOLDER" for="acuteNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+            </div><div class="col-2 col-sm-2 text-center">
+                <p>Lower (Huyền)</p>
+                <p><input id="lowerNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputlowerNUM-PLACEHOLDER" for="lowerNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+            </div><div class="col-2 col-sm-2 text-center">
+                <p>Rising (Hỏi)</p>
+                <p><input id="risingNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputrisingNUM-PLACEHOLDER" for="risingNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+            </div><div class="col-2 col-sm-2 text-center">
+                <p>Raised (Ngã)</p>
+                <p><input id="raisedNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputraisedNUM-PLACEHOLDER" for="raisedNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1   " maxlength="2">
+            </div><div class="col-2 col-sm-2 text-center">
+                <p>Heavy (Nặng)</p>
+                <p><input id="heavyNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputheavyNUM-PLACEHOLDER" for="heavyNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+            </div>
+        </div>
+        <div class="row  d-flex align-items-center p-2">                                
+            <div class="col-4 col-sm-2">Previous</div>
+            <div class="col-6 col-sm-4 d-flex align-items-center">
+                <textarea id="prevNUM-PLACEHOLDER" cols="30" rows="4" class="not-resizable"></textarea>
+            </div>
+            <label for="noNeedPrevNUM-PLACEHOLDER" class="col-4 col-sm-1">No need?</label>
+            <div class="col-8 col-sm-2 d-flex align-items-center">
+                <input type="checkbox" id="noNeedPrevNUM-PLACEHOLDER">
+            </div>
+        </div>
+        <div class="row  d-flex align-items-center p-2">                                
+            <div class="col-4 col-sm-2">Next</div>
+            <div class="col-6 col-sm-4 d-flex align-items-center">
+                <textarea id="nextNUM-PLACEHOLDER" cols="30" rows="4" class="not-resizable"></textarea>
+            </div>
+            <label for="noNeedNextNUM-PLACEHOLDER" class="col-4 col-sm-1">No need?</label>
+            <div class="col-8 col-sm-2 d-flex align-items-center">
+                <input type="checkbox" id="noNeedNextNUM-PLACEHOLDER">
+            </div>
+        </div>
+    </div>
+</div>
 `
