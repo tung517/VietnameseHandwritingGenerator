@@ -46,14 +46,14 @@ components.baseListPage = `
 
         <!-- Modal Header -->
         <div class="modal-header">
-            <h4 class="modal-title">Modal Heading</h4>
+            <h4 class="modal-title">Add new</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
         <!-- Modal body -->
         <div class="modal-body">
             <form id="newBaseCardForm" action="#">
-                <input name="newBase" id="newBaseCardInput" maxlength=3 type="text" class="form-control glyph-input" placeholder="Character" aria-label="Character">
+                <input name="newBase" id="newBaseCardInput" name="newBaseCardInput" maxlength=3 type="text" class="form-control glyph-input" placeholder="Character" aria-label="Character">
             </form>
         </div>
 
@@ -71,7 +71,7 @@ components.baseListPage = `
 
         <!-- Modal Header -->
         <div class="modal-header">
-            <h4 class="modal-title">Change base </h4>
+            <h4 class="modal-title p-1">Change base </h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
@@ -83,6 +83,8 @@ components.baseListPage = `
         <!-- Modal footer -->
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="submit" form="editBaseForm" class="btn btn-success" id="saveButton">Save</button>
+            <button type="button" class="btn btn-warning" id="addNewTypeButton">Add new type</button>
         </div>
 
         </div>
@@ -102,20 +104,19 @@ components.baseEditForm = `
     <div class="col-2 d-flex align-items-center justify-content-center">Editing base</div>
     <div class="col-10 d-flex align-items-center ">
         <span>Unicode:</span>
-        <input id="baseUnicode" class="glyph-display text-center" value="" type="text" disabled=true size=4>
+        <input id="baseUnicode" name="baseUnicode" class="glyph-display text-center" value="" type="text" disabled=true size=4>
         <span>Glyph</span>
-        <input id="baseCharacter" class="glyph glyph-display text-center" value="" size="1">
+        <input id="baseCharacter" name="baseCharacter" class="glyph glyph-display text-center" value="" size="1">
         <span>Number of types:</span>
-        <input id="numberOfTypes" class="glyph-display text-center" value="0" size="5">
+        <input id="numberOfTypes" name="numberOfTypes" class="glyph-display text-center" value="0" size="5">
     </div>
 </div>
 </form>
 `
 components.singleTypeEditor = `
-<div class="row" class="base-type-editor" id="typeNUM-PLACEHOLDER">
+<div class="row base-type-editor border border-3" id="typeNUM-PLACEHOLDER">
     <div class="col-sm-2 d-flex align-items-center justify-content-center">
-        <p>Type </p> 
-        <p class="type-num"> 1</p>
+        <p class="type-num">Type NUM-PLACEHOLDER</p>
     </div>
     <div class="col-sm-10">
         <div class="row  d-flex align-items-center p-2">                                
@@ -128,49 +129,49 @@ components.singleTypeEditor = `
         <div class="row">
             <div class="col-2 col-sm-2 text-center">
                 <p>Level (Ngang)</p>
-                <p><input id="levelNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
-                <input type="text" id="glyphinputlevelNUM-PLACEHOLDER" for="levelNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+                <p><input id="levelNUM-PLACEHOLDER" name="levelNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputlevelNUM-PLACEHOLDER" name="glyphinputlevelNUM-PLACEHOLDER" for="levelNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
             </div>
             <div class="col-2 col-sm-2 text-center">
                 <p>Acute (Sắc)</p>
-                <p><input id="acuteNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
-                <input type="text" id="glyphinputacuteNUM-PLACEHOLDER" for="acuteNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+                <p><input id="acuteNUM-PLACEHOLDER" name="acuteNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputacuteNUM-PLACEHOLDER" name="glyphinputacuteNUM-PLACEHOLDER" for="acuteNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
             </div><div class="col-2 col-sm-2 text-center">
                 <p>Lower (Huyền)</p>
-                <p><input id="lowerNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
-                <input type="text" id="glyphinputlowerNUM-PLACEHOLDER" for="lowerNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+                <p><input id="lowerNUM-PLACEHOLDER" name="lowerNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputlowerNUM-PLACEHOLDER" name="glyphinputlowerNUM-PLACEHOLDER" for="lowerNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
             </div><div class="col-2 col-sm-2 text-center">
                 <p>Rising (Hỏi)</p>
-                <p><input id="risingNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
-                <input type="text" id="glyphinputrisingNUM-PLACEHOLDER" for="risingNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+                <p><input id="risingNUM-PLACEHOLDER" name="risingNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputrisingNUM-PLACEHOLDER" name="glyphinputrisingNUM-PLACEHOLDER" for="risingNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
             </div><div class="col-2 col-sm-2 text-center">
                 <p>Raised (Ngã)</p>
-                <p><input id="raisedNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
-                <input type="text" id="glyphinputraisedNUM-PLACEHOLDER" for="raisedNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1   " maxlength="2">
+                <p><input id="raisedNUM-PLACEHOLDER" name="raisedNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputraisedNUM-PLACEHOLDER" name="glyphinputraisedNUM-PLACEHOLDER" for="raisedNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1   " maxlength="2">
             </div><div class="col-2 col-sm-2 text-center">
                 <p>Heavy (Nặng)</p>
-                <p><input id="heavyNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
-                <input type="text" id="glyphinputheavyNUM-PLACEHOLDER" for="heavyNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
+                <p><input id="heavyNUM-PLACEHOLDER" name="heavyNUM-PLACEHOLDER" class="text-center" value="" type="text" size=4></p>
+                <input type="text" id="glyphinputheavyNUM-PLACEHOLDER" name="glyphinputheavyNUM-PLACEHOLDER" for="heavyNUM-PLACEHOLDER" oninput="handleGlyphInput(this)" class="glyph text-center" value="" size="1" maxlength="2">
             </div>
         </div>
         <div class="row  d-flex align-items-center p-2">                                
             <div class="col-4 col-sm-2">Previous</div>
             <div class="col-6 col-sm-4 d-flex align-items-center">
-                <textarea id="prevNUM-PLACEHOLDER" cols="30" rows="4" class="not-resizable"></textarea>
+                <textarea id="prevNUM-PLACEHOLDER" name="prevNUM-PLACEHOLDER" cols="30" rows="4" class="not-resizable"></textarea>
             </div>
             <label for="noNeedPrevNUM-PLACEHOLDER" class="col-4 col-sm-1">No need?</label>
             <div class="col-8 col-sm-2 d-flex align-items-center">
-                <input type="checkbox" id="noNeedPrevNUM-PLACEHOLDER">
+                <input type="checkbox" id="noNeedPrevNUM-PLACEHOLDER" name="noNeedPrevNUM-PLACEHOLDER">
             </div>
         </div>
         <div class="row  d-flex align-items-center p-2">                                
             <div class="col-4 col-sm-2">Next</div>
             <div class="col-6 col-sm-4 d-flex align-items-center">
-                <textarea id="nextNUM-PLACEHOLDER" cols="30" rows="4" class="not-resizable"></textarea>
+                <textarea id="nextNUM-PLACEHOLDER" name="nextNUM-PLACEHOLDER" cols="30" rows="4" class="not-resizable"></textarea>
             </div>
             <label for="noNeedNextNUM-PLACEHOLDER" class="col-4 col-sm-1">No need?</label>
             <div class="col-8 col-sm-2 d-flex align-items-center">
-                <input type="checkbox" id="noNeedNextNUM-PLACEHOLDER">
+                <input type="checkbox" id="noNeedNextNUM-PLACEHOLDER" name="noNeedNextNUM-PLACEHOLDER">
             </div>
         </div>
     </div>
