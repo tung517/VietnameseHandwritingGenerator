@@ -29,6 +29,10 @@
         </style>
         <script>
             //utils
+            function isLetter(c) {
+                return !/[`~!@#$%^&*()_+\-=\[\]\{\};':",./<>?\\|0-9]+/.test(c)
+            }
+
             function getUnicodeStr(word){
                 console.log(word)
                 word = word.trim();
@@ -69,6 +73,8 @@
                     curr = charArr[i];
                     prev = i == 0 ? null: baseChars[i-1];
                     next = i == charArr.length - 1 ? null: baseChars[i+1];
+                    if(!isLetter(prev)){prev = null}
+                    if(!isLetter(next)){next = null}
                     let glyph = getGlyph(base, prev, curr, next);
                     console.log('glyph', glyph)
                     unicodeString += glyph;

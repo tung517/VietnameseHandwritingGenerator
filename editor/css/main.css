@@ -39,16 +39,19 @@ input[type=number] {
 
 .baseCard:not(.baseCard:nth-child(1)){
     font-family: HP001;
+    font-weight: bold;
 }
 
 input.glyph-input{
     font-size:72px;
     font-family: HP001;
+    font-weight: bold;
 }
 
 input.glyph{
     font-size:72px;
     font-family: HP001;
+    font-weight: bold;
 }
 
 input.glyph-display{
