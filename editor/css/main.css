@@ -1,10 +1,19 @@
 @font-face {
-    font-family: HP001-Normal;
+    font-family: HP001;
+    font-weight: normal;
     src: url(/static/font/HP001N30.ttf);
 }
 @font-face {
-    font-family: HP001-Bold;
+    font-family: HP001;
+    font-weight: bold;
     src: url(/static/font/HP001B30.ttf);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .collapsing {
+        transition-property: height, visibility;
+        transition-duration: .25s;
+    }
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -29,17 +38,17 @@ input[type=number] {
 }
 
 .baseCard:not(.baseCard:nth-child(1)){
-    font-family: HP001-Bold;
+    font-family: HP001;
 }
 
 input.glyph-input{
     font-size:72px;
-    font-family: HP001-Bold;
+    font-family: HP001;
 }
 
 input.glyph{
     font-size:72px;
-    font-family: HP001-Bold;
+    font-family: HP001;
 }
 
 input.glyph-display{
