@@ -47,7 +47,7 @@ utils.isUpperCase = function (str){
         "BCGHKLMNPQRSTVX"   
     ]
     for (var i=0; i<uppercaseLetters.length; i++) {
-        var re = new RegExp('[' + uppercaseLetters[i].substr(1) + ']', 'g');
+        var re = new RegExp('[' + uppercaseLetters[i] + ']', 'g');
         if(re.test(str)){
             return true;
         }
