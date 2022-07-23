@@ -24,11 +24,38 @@ p{
 }
 
 #result{
+    padding-left: 14.4pt;
+    padding-top: calc(3pt + 14.4pt *2 );
     font-size:72pt ;
     font-family: HP001; 
     font-weight: bold;
+    line-height: 72pt;
+    color: white
+}
+
+
+#result>p:not(:first-child){
+    margin-top: calc(14.4pt * 3);
 }
 
 #rulesformitem{
     display: block;
+}
+
+.board{
+    background-color: #496e53;
+}
+.grid {
+    background-image:
+      repeating-linear-gradient(#ccc 0 1px, transparent 1px 100%),
+      repeating-linear-gradient(90deg, #ccc 0 1px, transparent 1px 100%);
+    background-size: 14.4pt 14.4pt;
+}
+
+.grid1 {
+    background-image:
+      repeating-linear-gradient(#ccc 0 2px, transparent 2px 100%),
+      repeating-linear-gradient(90deg, #ccc 0 2px, transparent 2px 100%);
+    background-size: calc(14.4pt * 4) calc(14.4pt * 4);
+    background-position: 14.4pt 28.8pt
 }
