@@ -38,6 +38,12 @@ p{
     margin-top: calc(14.4pt * 3);
 }
 
+#result>p:last-child::after{
+    content: ' ';
+    display: block;
+    height: calc(14.4pt * 3);
+}
+
 #rulesformitem{
     display: block;
 }
